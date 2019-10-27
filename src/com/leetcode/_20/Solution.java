@@ -2,6 +2,9 @@ package com.leetcode._20;
 
 import java.util.Stack;
 /**
+ * 1.分析题目很明显是栈问题，所以如何利用好push和pop是一个技术突破口。
+ * 2.当for循环完，也就是stack该pop的已经pop，如果stack为空，则证明括号一一对应，则返回true
+ * 3.以此判断([{,然后其对应的右字符进栈，再出栈，判断是否相等
  * @author jhys
  * @date 2019/10/27
  */
