@@ -1,7 +1,7 @@
 package com.leetcode._26;
 
 /**
- * 双指针法,筛选不同的项进入数组
+ * 双指针法,筛选不同的项，存到数组中
  * @author jhys
  * @date 2019/10/27
  */
