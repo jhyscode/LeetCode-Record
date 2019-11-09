@@ -62,7 +62,7 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        System.out.println(divide(7,3));
+        System.out.println(divide(29,8));
     }
 }
 
@@ -76,15 +76,15 @@ public class Solution {
  * 此外注意判断结果正负号的正负号时亦或的作用。 代码如下:
  */
 class Solution2 {
-    public int divide(int dividend, int divisor) {
+    public static int divide(int dividend, int divisor) {
         if(divisor == 0 || (dividend == Integer.MIN_VALUE && divisor == -1)){//考虑特殊情况
             return Integer.MAX_VALUE;
         }
         int sign = ((dividend < 0) ^ (divisor < 0)) ? -1 : 1;//异或运算
         long ms = (long)dividend;
         long ns = (long)divisor;
-        ms = Math.abs(ms);
-        ns = Math.abs(ns);
+        ms = Math.abs(ms); //被除数
+        ns = Math.abs(ns); //除数
         int num = 0;
         while(ms >= ns){
             long m = ns;
@@ -97,5 +97,9 @@ class Solution2 {
             ms -= m;
         }
         return num * sign;
+    }
+
+    public static void main(String[] args) {
+        int res = divide(29,8);
     }
 }
