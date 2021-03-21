@@ -45,7 +45,9 @@ class Solution2 {
         Set<Character> set = new HashSet<>(); //初始化一个hashset
         for (int i = start; i < end; i++) {
             Character ch = s.charAt(i);
-            if (set.contains(ch)) return false;
+            if (set.contains(ch)) {
+                return false;
+            }
             set.add(ch);
         }
         return true;
