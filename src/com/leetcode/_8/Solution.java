@@ -13,32 +13,31 @@ package com.leetcode._8;
  */
 public class Solution {
     public static int myAtoi(String str) {
-        str = str.trim();
-        if (str == null || str.length() == 0)
-            return 0;
-        char firstChar = str.charAt(0);
-        int sign = 1;
-        int start = 0;
-        long res = 0;
-        if (firstChar == '+') {
-            sign = 1;
-            start++;
-        } else if (firstChar == '-') {
-            sign = -1;
-            start++;
+       if (str == null || str.length() == 0) {
+           return 0;
+       }
+       int index = 0, base = 0, sign = 1, len = str.length();
+       // 跳过空格
+        while (index < len && str.charAt(index) == ' ') {
+            index++;
+        }
+        // 获取符号位
+        if (index < len && (str.charAt(index) == '+' || str.charAt(index) == '-')) {
+            sign = 1 - 2 * ((str.charAt(index++) == '-') ? 1 : 0);
+        } // 只取数字，碰到非数字退出循环
+        while (index < len && str.charAt(index) >= '0' && str.charAt(index) <= '9') {
+            // 溢出判断，MAX_VALUE的个位为7
+            if (base > Integer.MAX_VALUE / 10 || (base == Integer.MAX_VALUE / 10 && str.charAt(index) - '0' > 7))
+                if (sign == 1)
+                    return Integer.MAX_VALUE;
+                else
+                    return Integer.MIN_VALUE;
+
+            base = base * 10 + str.charAt(index++) - '0';
         }
 
-        for (int i = start; i < str.length(); i++) {
-            if (!Character.isDigit(str.charAt(i))) {
-                return (int) res * sign;
-            }
-            res = res * 10 + str.charAt(i) - '0';
-            if (sign == 1 && res > Integer.MAX_VALUE)
-                return Integer.MAX_VALUE;
-            if (sign == -1 && res > Integer.MAX_VALUE)
-                return Integer.MIN_VALUE;
-        }
-        return (int) res * sign;
+        return sign * base;
+
     }
 
     public static void main(String[] args) {
