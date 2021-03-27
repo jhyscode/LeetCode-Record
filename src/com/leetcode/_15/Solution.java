@@ -28,6 +28,11 @@ class Solution {
         return lists;
     }
 
+    /**
+     * 排序+双指针，易懂图解
+     * @param nums
+     * @return
+     */
     public static List<List<Integer>> threeSum2(int[] nums) {
         Arrays.sort(nums);
         int n = nums.length;
