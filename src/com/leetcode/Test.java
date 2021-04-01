@@ -16,8 +16,9 @@ public class Test {
 //        for(Map.Entry<String,Integer> entry: map.entrySet()) {
 //            System.out.println(entry.getKey()+","+entry.getValue());
 //        }
-        System.out.println(Integer.parseInt("42"));
-        System.out.println(Integer.MAX_VALUE);
+//        System.out.println(Integer.parseInt("42"));
+//        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.toBinaryString(5));
     }
 }
 
