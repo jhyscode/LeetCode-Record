@@ -1,0 +1,30 @@
+package com.leetcode._448;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * @author ：jhys
+ * @date ：Created in 2021/4/9 20:04
+ * @Description ：
+ */
+public class Solution {
+
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        for (int i : nums) {
+            int index = Math.abs(i);
+            if (nums[index - 1] > 0) {
+                nums[index - 1] *= -1;
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                res.add(i + 1);
+            }
+        }
+        return res;
+    }
+}
