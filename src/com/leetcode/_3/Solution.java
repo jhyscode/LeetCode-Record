@@ -4,6 +4,7 @@ import java.util.*;
 
 /**
  * Problem3
+ *
  * @author jhys
  * @date 2019/9/27
  */
@@ -17,15 +18,16 @@ public class Solution {
     public static int lengthOfLongestSubstring(String s) {
         Queue<Character> queue = new LinkedList<>();
         int res = 0;
-        for(char c : s.toCharArray()) {
-            while(queue.contains(c)) {
+        char[] chs = s.toCharArray();
+        for (char ch : chs) {
+            while (queue.contains(ch)) {
                 queue.poll();
             }
-            queue.offer(c);
+            queue.add(ch);
             res = Math.max(res, queue.size());
         }
         return res;
-        }
+    }
 
 
     public static void main(String[] args) {

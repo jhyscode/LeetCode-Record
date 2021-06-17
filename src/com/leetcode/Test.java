@@ -3,6 +3,7 @@ package com.leetcode;
 import javax.lang.model.type.IntersectionType;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.LinkedList;
 
 /**
  * @author jhys
@@ -35,3 +36,27 @@ class TreeNode {
     }
 }
 
+// Java code to demonstrate push() method
+
+
+class GfG {
+    // Main method
+    public static void main(String[] args)
+    {
+
+        // Creating a LinkedList object to represent a stack.
+        LinkedList<String> stack = new LinkedList<>();
+
+        // Pushing an element in the stack
+        stack.push("I");
+
+        // Pushing an element in the stack
+        stack.push("Like");
+
+        // Pushing an element in the stack
+        stack.push("GeeksforGeeks");
+
+        // Printing the complete stack.
+        System.out.println(stack.pop());
+    }
+}
