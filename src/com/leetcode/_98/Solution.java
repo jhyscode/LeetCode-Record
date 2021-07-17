@@ -2,6 +2,8 @@ package com.leetcode._98;
 
 import sun.reflect.generics.tree.Tree;
 
+import java.time.OffsetDateTime;
+
 /**
  * @author ：jhys
  * @date ：Created in 2021/3/19 21:14
@@ -22,21 +24,19 @@ class TreeNode {
 
 
 public class Solution {
-    long pre = Long.MIN_VALUE; // 记录上一个节点的值，初始值为Long的最小值
+    // 因为后台测试数据中有int最小值,maxVal跟踪最大值
+    long maxVal = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
         if (root == null) {
             return true;
         }
-        // 访问左子树
-        if (!isValidBST(root.left)) {
+        boolean left = isValidBST(root.left);
+        if (maxVal <= root.val) {
+            maxVal = root.val;
+        } else {
             return false;
         }
-        // 访问当前节点：如果当前节点小于等于中序遍历的前一个节点，说明不满足BST，返回 false；否则继续遍历。
-        if (root.val <= pre) {
-            return false;
-        }
-        pre = root.val;
-        // 访问右子树
-        return isValidBST(root.right);
+        boolean right = isValidBST(root.left);
+        return left && right;
     }
 }
